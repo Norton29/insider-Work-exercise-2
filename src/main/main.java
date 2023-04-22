@@ -11,12 +11,8 @@ import service.Service;
 
 public class main {
 	
-
-	static List<TabelaEmpresa> tabelaEmpresas = new ArrayList<>();
-	
-
 	public static void main(String[] args) {
-		Service rankingEmpresa = new Service();
+		Service service = new Service();
 		TabelaEmpresa empresaF = new TabelaEmpresa("F", Date.valueOf(LocalDate.of(2022, 5, 1)), 0);
 		TabelaEmpresa empresaA = new TabelaEmpresa("A", Date.valueOf(LocalDate.of(2022, 5, 1)), 1);
 		TabelaEmpresa empresaB = new TabelaEmpresa("B", Date.valueOf(LocalDate.of(2022, 5, 1)), 1);
@@ -28,6 +24,7 @@ public class main {
 		TabelaEmpresa empresaA3 = new TabelaEmpresa("A", Date.valueOf(LocalDate.of(2022, 5, 1)), 1);
 		TabelaEmpresa empresaB2 = new TabelaEmpresa("B", Date.valueOf(LocalDate.of(2022, 5, 1)), 0);
 		
+		List<TabelaEmpresa> tabelaEmpresas = new ArrayList<>();
 		tabelaEmpresas.add(empresaF);
 		tabelaEmpresas.add(empresaA);
 		tabelaEmpresas.add(empresaB);
@@ -39,8 +36,8 @@ public class main {
 		tabelaEmpresas.add(empresaB2);
 		tabelaEmpresas.add(empresaA3);
 		
-		Map<String, Integer> media = rankingEmpresa.media(tabelaEmpresas);
-		Map<String, String> rankingFinal = rankingEmpresa.rankingEmpresas(media);
+		Map<String, Integer> media = service.media(tabelaEmpresas);
+		Map<String, String> rankingFinal = service.rankingEmpresas(media);
 		
 		System.out.println(media);
 		System.out.println(rankingFinal);

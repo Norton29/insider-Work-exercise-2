@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import entity.TabelaEmpresa;
 
 public class Service {
-	
+
 	public Map<String, Integer> media(List<TabelaEmpresa> tabelaEmpresaList) {
 		Map<String, Integer> mediaEmpresas = new HashMap<>();
 
@@ -32,29 +32,24 @@ public class Service {
 		}
 		return mediaEmpresas;
 	}
-	
-	
+
 	public Map<String, String> rankingEmpresas(Map<String, Integer> media) {
 		Map<String, String> rankingFinal = new HashMap<>();
-		
-		for(Entry<String, Integer> empresa: media.entrySet()) {
+
+		for (Entry<String, Integer> empresa : media.entrySet()) {
 			String nomeEmpresa = empresa.getKey();
 			Integer posicaoRanking = empresa.getValue();
-			if(posicaoRanking >= 4) {
+			if (posicaoRanking >= 4) {
 				rankingFinal.put(nomeEmpresa, "Excelente");
-			}else if(posicaoRanking >= 1) {
+			} else if (posicaoRanking >= 1) {
 				rankingFinal.put(nomeEmpresa, "Boa");
-			}else if(posicaoRanking >= -2) {
+			} else if (posicaoRanking >= -2) {
 				rankingFinal.put(nomeEmpresa, "Ruim");
-			}else if(posicaoRanking <= -3){
+			} else if (posicaoRanking <= -3) {
 				rankingFinal.put(nomeEmpresa, "Pessíma");
 			}
-		
-			
 		}
-		
 		return rankingFinal;
-		
 	}
 
 }
